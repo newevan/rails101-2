@@ -1,4 +1,5 @@
 class GroupsController < ApplicationController
+  before_action :authenticate_user! , only: [:new]
   def index
     @groups = Group.all
   end
@@ -29,7 +30,7 @@ def update
   else
     render :edit
   end
-  
+
 end
 
 def destroy
